@@ -9,17 +9,23 @@
 <title>英雄联盟</title>
 </head>
 <body>
+<!-- 英雄的添加和修改都会在这个页面完成。 -->
 <div class="container ">
 <%
+    
+	//如果能从后台获取到hero，那么说明是修改
+	//默认将内容填入到表单内。
 	Hero hero = (Hero)request.getAttribute("hero");
+	Integer id = null;
 	String name = "";
 	String nick_name = "";
 	String avatar = "";
 	String image = "";
 	String desc = "";
-	String title = "添加英雄";
+	String title = "添加英雄";//如果不能在页面发现hero,那么页面标题默认为“添加英雄。”
 	
 	if(hero != null){
+		id = hero.getId();
 		name = hero.getName();
 		nick_name = hero.getNickName();
 		avatar = hero.getAvatar();
@@ -33,7 +39,8 @@
 	<%=title %>
 </h1>
 <form action="/jsp/hero" method="post" class="form-horizontal" role="form">
-
+<!-- 传递id -->
+<input type="hidden" value="<%=id %>"/>
   <div class="form-group">
     <label for="name" class="col-sm-2 control-label">英雄姓名</label>
     <div class="col-sm-10">

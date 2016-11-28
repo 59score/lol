@@ -23,12 +23,14 @@ public class ShowHeroesServlet extends HttpServlet {
 	 * 显示全部的英雄.
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		HeroManager manager = new HeroManager();
-		List<Hero> heroes = manager.findAll();
 		
-		request.setAttribute("heroes", heroes);
+		
+		HeroManager manager = new HeroManager();//生成一个manager对象
+		List<Hero> heroes = manager.findAll();//找到所有的英雄
+		
+		request.setAttribute("heroes", heroes);//将所有的英雄放到request中
 		RequestDispatcher dis = request.getRequestDispatcher("/lolView/heroes.jsp");
-		dis.forward(request, response);
+		dis.forward(request, response);//带着所有的英雄转向。
 	}
 
 }

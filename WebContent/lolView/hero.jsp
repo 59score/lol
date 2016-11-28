@@ -15,6 +15,8 @@
 <%=hero.getName() %>
 <%=hero.getNickName() %>
 <img src="http://localhost:8080/lol/<%=hero.getImage() %>" />
+
+<!-- 下面这条伪造的get连接是为了判断是否要转入修改页面。 -->
 <a href="http://localhost:8080/lol/hero?id=<%=hero.getId()%>&is_change=true">修改</a>
 </body>
 </html>

@@ -25,11 +25,22 @@ public class HeroServlet extends HttpServlet {
 		HeroManager manager = new HeroManager();
 		
 		int id = Integer.parseInt(request.getParameter("id"));
-		Hero hero = manager.findOne(id);
+		String isChange = request.getParameter("is_change");
+		String directPage = "";
 		
+		Hero hero = manager.findOne(id);
 		request.setAttribute("hero", hero);
-		RequestDispatcher dis = request.getRequestDispatcher("/lolView/hero.jsp");
+		
+		if(isChange != null){
+			directPage = "/lolView/update.jsp";	
+		}else{
+			directPage = "/lolView/hero.jsp";
+		}
+		
+		RequestDispatcher dis = request.getRequestDispatcher(directPage);
 		dis.forward(request, response);
+		
+		
 	}
 
 	/**

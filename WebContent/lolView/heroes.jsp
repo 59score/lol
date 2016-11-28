@@ -22,7 +22,7 @@
 %>
 		<tr>
 			<td>
-				<a href="http://localhost:8080/jsp/hero?id=<%=hero.getId()%>"> 
+				<a href="http://localhost:8080/lol/hero?id=<%=hero.getId()%>"> 
 				<%=hero.getName()%>
 				</a>
 			</td>

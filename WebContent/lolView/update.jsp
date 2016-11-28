@@ -17,6 +17,7 @@
 	String avatar = "";
 	String image = "";
 	String desc = "";
+	String title = "添加英雄";
 	
 	if(hero != null){
 		name = hero.getName();
@@ -24,10 +25,13 @@
 		avatar = hero.getAvatar();
 		image = hero.getImage();
 		desc = hero.getDesc();
+		title = "修改英雄";
 	}
 	
 %>
-<h1 class="center">添加英雄</h1>
+<h1 class="center">
+	<%=title %>
+</h1>
 <form action="/jsp/hero" method="post" class="form-horizontal" role="form">
 
   <div class="form-group">
